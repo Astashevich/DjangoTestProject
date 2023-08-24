@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    .css_input {
+        color: yellow;
+        background-color: red;
+    }
+</style>
+
+<form action="{% url 'thanks_page' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Send</button>
+</form>
+
+{% if orders %}
+    <table border="1">
+        <tr>
+            <td>Id</td>
+            <td>Date</td>
+            <td>Name</td>
+            <td>Phone</td>
+        </tr>
+        {% for order in orders %}
+            <tr>
+                <th>{{ order.id }}</th>
+                <th>{{ order.order_dt }}</th>
+                <th>{{ order.order_name }}</th>
+                <th>{{ order.order_phone }}</th>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    No data
+{% endif %}
+
+</body>
+</html>
