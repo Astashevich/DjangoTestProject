@@ -1,44 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Title index{% endblock %}
+{% load static %}
 
-<style>
-    .css_input {
-        color: yellow;
-        background-color: red;
-    }
-</style>
+{% block content %}
+    <h1>Data from index</h1>
 
-<form action="{% url 'thanks_page' %}" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Send</button>
-</form>
+    <img src="{% static 'image/1.jpg' %}" height="300">
 
-{% if orders %}
-    <table border="1">
-        <tr>
-            <td>Id</td>
-            <td>Date</td>
-            <td>Name</td>
-            <td>Phone</td>
-        </tr>
-        {% for order in orders %}
-            <tr>
-                <th>{{ order.id }}</th>
-                <th>{{ order.order_dt }}</th>
-                <th>{{ order.order_name }}</th>
-                <th>{{ order.order_phone }}</th>
-            </tr>
-        {% endfor %}
-    </table>
-{% else %}
-    No data
-{% endif %}
-
-</body>
-</html>
+    {% include 'index_old.html' %}
+{% endblock %}
