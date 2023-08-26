@@ -18,7 +18,7 @@
   height: 35px;
   float: right;
   margin: 15px 30px 5px 20px;
-  background: url(./img/wa-image-color.png) no-repeat center top / cover;
+  background: url(./image/wa-image-color.png) no-repeat center top / cover;
   transition: 0.5s ease-in-out;
 }
 .telegram-number {
@@ -26,7 +26,7 @@
   height: 35px;
   float: right;
   margin: 15px 30px 5px 20px;
-  background: url(./img/tg-image-color.png) no-repeat center top / cover;
+  background: url(./image/tg-image-color.png) no-repeat center top / cover;
   transition: 0.5s ease-in-out;
 }
 
