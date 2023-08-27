@@ -2,16 +2,16 @@ from django.shortcuts import render
 
 from crm.forms import OrderForm
 from crm.models import Order
+from cms.models import CmsSlider
 
 
 # Create your views here.
 def first_page(request):
-    orders = Order.objects.all()
-    form = OrderForm()
+    slider_list = CmsSlider.objects.all()
     return render(request, './index.html', {
-        'orders': orders,
-        'form': form
+        'slider_list': slider_list
     })
+
 
 def thanks_page(request):
     name = request.POST['name']
