@@ -27,11 +27,12 @@ def first_page(request):
 
 
 def thanks_page(request):
-    name = request.POST['name']
-    phone = request.POST['phone']
-    order = Order(order_name=name, order_phone=phone)
-    order.save()
-    send_telegram(name, phone)
-    return render(request, 'thanks_page.html', {
-        'name': name
-    })
+    if request.POST:
+        name = request.POST['name']
+        phone = request.POST['phone']
+        order = Order(order_name=name, order_phone=phone)
+        order.save()
+        send_telegram(name, phone)
+        return render(request, 'thanks.html', {'name': name})
+    else:
+        return render(request, 'thanks.html')
