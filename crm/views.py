@@ -4,6 +4,7 @@ from crm.forms import OrderForm
 from crm.models import Order
 from cms.models import CmsSlider
 from price.models import PriceCard, PriceTable
+from telebot.sendmessage import send_telegram
 
 
 # Create your views here.
@@ -30,6 +31,7 @@ def thanks_page(request):
     phone = request.POST['phone']
     order = Order(order_name=name, order_phone=phone)
     order.save()
+    send_telegram(name, phone)
     return render(request, 'thanks_page.html', {
         'name': name
     })
